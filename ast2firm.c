@@ -123,17 +123,20 @@ static symbol_t *unique_symbol(const char *tag)
 
 static ir_mode *get_atomic_mode(const atomic_type_kind_t atomic_kind)
 {
-	switch (atomic_kind) {
+	switch (atomic_kind) 
+  {
 	case ATOMIC_TYPE_BYTE:      return mode_Bs;
 	case ATOMIC_TYPE_UBYTE:     return mode_Bu;
 	case ATOMIC_TYPE_SHORT:     return mode_Hs;
 	case ATOMIC_TYPE_USHORT:    return mode_Hu;
 	case ATOMIC_TYPE_INT:       return mode_Is;
 	case ATOMIC_TYPE_UINT:      return mode_Iu;
+	case ATOMIC_TYPE_LONGLONG:
 	case ATOMIC_TYPE_LONG:      return mode_Ls;
+  case ATOMIC_TYPE_ULONGLONG:
 	case ATOMIC_TYPE_ULONG:     return mode_Lu;
-	case ATOMIC_TYPE_LONGLONG:  return mode_LLs;
-	case ATOMIC_TYPE_ULONGLONG: return mode_LLu;
+	// case ATOMIC_TYPE_LONGLONG:  return mode_LLs;
+	// case ATOMIC_TYPE_ULONGLONG: return mode_LLu;
 	case ATOMIC_TYPE_FLOAT:     return mode_F;
 	case ATOMIC_TYPE_DOUBLE:    return mode_D;
 	case ATOMIC_TYPE_BOOL:      return mode_Bu;
@@ -143,7 +146,7 @@ static ir_mode *get_atomic_mode(const atomic_type_kind_t atomic_kind)
 }
 
 
-static unsigned get_type_size(type_t *type);
+// static unsigned get_type_size(type_t *type);
 
 static unsigned get_atomic_type_size(const atomic_type_t *type)
 {
@@ -198,6 +201,7 @@ static unsigned get_array_type_size(array_type_t *type)
 	return get_type_size_bytes(irtype);
 }
 
+#if false
 static unsigned get_type_size(type_t *type)
 {
 	switch (type->kind) {
@@ -233,6 +237,7 @@ static unsigned get_type_size(type_t *type)
 	}
 	panic("Trying to determine size of invalid type");
 }
+#endif
 
 static int count_parameters(const function_type_t *function_type)
 {

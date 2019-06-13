@@ -2,7 +2,11 @@
 *.dylib
 .*.swp
 a.out
-/config.mak
-/.depend
-/fluffy
-/fluffy.exe
+config.mak
+.depend
+fluffy
+fluffy.exe
+build
+*.swp
+*.swo
+*~

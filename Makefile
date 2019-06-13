@@ -2,14 +2,14 @@
 
 GOAL = fluffy
 
-FIRM_CFLAGS ?= `pkg-config --cflags libfirm`
-FIRM_LIBS ?= `pkg-config --libs libfirm`
+FIRM_CFLAGS ?= -I/usr/include
+FIRM_LIBS ?= -L/usr/lib
 
 CPPFLAGS = -I.
 CPPFLAGS += $(FIRM_CFLAGS) -DFIRM_BACKEND
 
 CFLAGS += -Wall -W -Wextra -Wstrict-prototypes -Wwrite-strings -Wmissing-prototypes -Werror -std=c99
-CFLAGS += -O0 -g3
+CFLAGS += -Wno-cast-function-type -O0 -g3
 
 LFLAGS += $(FIRM_LIBS) -ldl
 
